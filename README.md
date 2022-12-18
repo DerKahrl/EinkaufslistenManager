@@ -1,38 +1,36 @@
-# EKLM-Frontend
+# Einkaufslisten Manager
+
+Ein einfache Webanwendung zur gemeinsamen verwaltung von Einkaufslisten.
+
+
+## Benutzung
+
+Wenn Docker installiert ist kann über das `start.sh` Script alles gestartet werden.
+Das Script führt den folgenden Befehl aus:
+```bash
+sudo docker compose up -d --build
+```
+
+Sollte Docker noch nicht installiert sein, siehe weiter unten für eine Anleitung.
 
 ## Features
-
-### Eigenschaften
-* Neue eigenschaft erstellen
-* Eigenschaft löschen
-* Eigenschaft löschen welche von Produkt benutzt wird
-* Anzeigepriorität bearbeiten
-* Anzeige vergleichsgruppen erstellen
-* Eigenschaften in Gruppen einordnen
-
-### Produkte
-* Neues Produkt hinzufügen
-* Produkt bearbeiten
-* Produkt löschen
-* Produkt löschen welches von Gericht und Einkaufsliste benutzt wird
 
 ### Einkaufslisten
 * Neue Liste erstellen
 * Eintrag
    * hinzufügen
-      * auch mit Produkt welches es noch nicht gibt
+      * erstellt Prodult, wenn es dieses nicht gibt
    * bearbeiten
    * löschen
 * Liste
    * teilen
-
        * Nutzer einsehen
        * Nutzer hinzufügen
        * Nutzer entfernen
    * Liste Löschen
 
 * Geteilete Listen andere Nutzer einsehen
-   * Dort auch einträge hinzufügen / bearbeiten und Löschen
+   * Dort auch einträge hinzufügen / bearbeiten und löschen
 
 * Liste sortieren
 
@@ -41,7 +39,22 @@
 * Gericht bearbeiten
 * Gericht löschen
 * Gericht anklicken
-  * Zutaten in einkaufsliste hinzufügen
+  * Zutaten in Einkaufsliste hinzufügen
+
+### Produkte
+* Neues Produkt erstellen
+* Produkt bearbeiten
+* Produkt löschen
+* Produkt löschen welches von Gericht und Einkaufsliste benutzt wird
+
+### Eigenschaften
+* Neue Eigenschaft erstellen
+* Eigenschaft löschen
+* Eigenschaft löschen welche von Produkt benutzt wird
+* Anzeigepriorität
+   * Anzeigepriorität bearbeiten
+   * Anzeige Vergleichsgruppen erstellen
+   * Eigenschaften in Gruppen einordnen
 
 ### Benutzer
 * Erstellen
@@ -53,6 +66,9 @@
 ### Einstellungen
 * Darkmode
 
+## API-Dokumentation
+
+Eine von Spring-Doc generierte OpenAPI Dokumentation kann unter [http://localhost/api/swagger.html](http://localhost/api/swagger.html) gefunden werden.
 
 # Installation
 
@@ -65,8 +81,10 @@ Docker wird benötigt, um die Container auszuführen.
 Hier ist die offizielle Installationsanleitung für Ubuntu:   
 https://docs.docker.com/engine/install/ubuntu/
 
+Dazu kann das Script `installDocker.sh` genutzt werden.
 
-Also die folgenden Befehle ausführen um Docker über die Paketverwaltung [APT (Advanced Packaging Tool)](https://de.wikipedia.org/wiki/Advanced_Packaging_Tool) zu installeren:
+
+Oder es können die folgenden Befehle ausgeführt werden um Docker über die Paketverwaltung [APT (Advanced Packaging Tool)](https://de.wikipedia.org/wiki/Advanced_Packaging_Tool) zu installeren:
 
 1. Das lokale Ubuntu-System auf den neusten Stand bringen:
 ```bash
