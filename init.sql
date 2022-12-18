@@ -36,7 +36,7 @@ CREATE TABLE if NOT EXISTS benutzer_zugriff_einkaufsliste(
 
 INSERT INTO benutzer_zugriff_einkaufsliste VALUES
 ( 2, 2 ),
-( 3, 1 );
+( 1, 3 );
 
 
 CREATE TABLE if NOT EXISTS produkte(

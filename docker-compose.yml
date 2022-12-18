@@ -28,7 +28,7 @@ services:
       - ./volume/mysql:/var/lib/mysql:rw
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     environment:
-      MYSQL_DATABASE: "kanders"
+      MYSQL_DATABASE: "eklmdb"
       MYSQL_USER: "sample"
       MYSQL_ROOT_PASSWORD: "45324324532442345324232"
       MYSQL_PASSWORD: "sample"
