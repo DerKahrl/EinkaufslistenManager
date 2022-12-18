@@ -1,6 +1,6 @@
 # Einkaufslisten Manager
 
-Ein einfache Webanwendung zur gemeinsamen verwaltung von Einkaufslisten.
+Eine einfache Webanwendung zur gemeinsamen verwaltung von Einkaufslisten.
 
 
 ## Benutzung
@@ -136,12 +136,12 @@ sudo apt-get install git -y
     
 1. Die Container herunterladen. Dies kann mit dem folgenden Befehl gemacht werden:
 ```bash
-git clone https://......
+git clone https://github.com/DerKahrl/EinkaufslistenManager.git
 ```
 
 2. In das erstelle Verzeichniss welchseln
 ```bash
-cd EKLM-Projekt/
+cd EinkaufslistenManager/
 ```
 
 3. Mit Docker Compose die Container bauen und starten:
@@ -164,3 +164,11 @@ sudo docker logs <container-id>
 ```bash
 sudo docker compose down
 ```
+
+# Datenbank
+
+Als [DBMS (Database management system)](https://de.wikipedia.org/wiki/Datenbank#Funktionen_eines_Datenbankmanagementsystems_(DBMS)) wird [MariaDB](https://de.wikipedia.org/wiki/MariaDB) benutzt.
+
+Das [ERM (Entity-Relationship-Modell)](https://de.wikipedia.org/wiki/Entity-Relationship-Modell) für dieses Projekt:
+![ERM](ERM.png)    
+Die Beziehungen "*Einkaufsliste enthält Produkte*" sowie "*Gericht enthält Produkte*" wurden mit einem künstlichen Primärschlüssel versehen, da das für den Zugriff auf die Datenbank verwendete Framework Schwierigkeiten hatte, einen zusammengesetzten Primärschlüssel zu verwenden.
