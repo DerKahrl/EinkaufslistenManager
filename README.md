@@ -13,6 +13,13 @@ sudo docker compose up -d --build
 
 Sollte Docker noch nicht installiert sein, siehe weiter unten für eine Anleitung.
 
+## Login
+
+Standard Nutzername und Passwort
+
+**Nutzername**: `admin`    
+**Passwort**: `admin`
+
 ## Features
 
 ### Einkaufslisten
