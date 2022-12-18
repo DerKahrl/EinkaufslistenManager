@@ -1,6 +1,6 @@
-DROP DATABASE if exists kanders2;
-CREATE DATABASE if NOT EXISTS kanders2;
-USE kanders2;
+DROP DATABASE if exists eklmdb;
+CREATE DATABASE if NOT EXISTS eklmdb;
+USE eklmdb;
 
 CREATE TABLE if NOT EXISTS benutzer(
 	benu_id INT PRIMARY KEY AUTO_INCREMENT,
