@@ -1,0 +1,36 @@
+<mat-tab-group [selectedIndex]="selectedTabIndex" mat-stretch-tabs="true" mat-align-tabs="center">
+
+  <mat-tab label="Meine Einkaufslisten">
+
+    <div *ngFor="let el of einkaufslisten" class="eklStyle">
+      <app-einkaufsliste
+        [hideProperties]="mobileQuery_800px.matches"
+        [einkaufsliste]="el"
+        (plsUpdate)="updateShoppingLists()"
+      ></app-einkaufsliste>
+    </div>
+    
+    <div class="eklStyle">
+      <mat-card class="example-card" class="mat-elevation-z8">
+        <mat-card-content>
+          <button mat-stroked-button color="primary" (click)="createEinkaufsliste()" style="width: 100%;">
+            <mat-icon>note_add</mat-icon> Neue Einkaufsliste
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </mat-tab>
+
+  <mat-tab label="Geteilte Einkaufslisten" *ngIf="this.sharedEinkaufslisten.length > 0">
+  
+    <div *ngFor="let el of sharedEinkaufslisten" class="eklStyle">
+      <app-einkaufsliste
+        [hideProperties]="mobileQuery_800px.matches"
+        [einkaufsliste]="el"
+        (plsUpdate)="updateShoppingLists()"
+      ></app-einkaufsliste>
+    </div>
+  </mat-tab>
+  
+</mat-tab-group>

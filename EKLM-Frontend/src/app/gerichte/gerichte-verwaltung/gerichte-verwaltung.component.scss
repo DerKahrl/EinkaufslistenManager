@@ -1,0 +1,16 @@
+.mat-row .mat-cell {
+    cursor: pointer;
+  }
+
+
+  .mat-row:hover .mat-cell {
+    /*border-color: currentColor; */
+    background-color: rgb(243, 241, 241);
+
+  }
+  .filterClass {
+    width: calc(100% - 40px);
+    margin: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

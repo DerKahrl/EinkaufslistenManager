@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>{{eigenschaft.eigsId === -1 ? 'Neue Eigenschaft' : 'Eigenschaft bearbeiten'}}</h1>
+<mat-dialog-content style="height: 110px;">
+  <div style="display:flex; flex-direction: column;">
+    <mat-form-field appearance="fill">
+      <mat-label>Bezeichnung</mat-label>
+      <input matInput [(ngModel)]="eigenschaft.bezeichnung">
+    </mat-form-field>
+    <mat-slide-toggle [(ngModel)]="eigenschaft.anzeigen">Anzeigen</mat-slide-toggle>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" mat-dialog-close>Abbrechen</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="eigenschaft"
+    cdkFocusInitial>{{ eigenschaft.eigsId === -1 ? 'Erstellen' : 'Ändern' }}</button>
+</mat-dialog-actions>

@@ -1,0 +1,15 @@
+.desktopLayout {
+    display:flex;margin: 10px;
+}
+
+.mobileLayout {
+
+}
+
+.desktopLayout .box {
+    margin: 25px;
+}
+
+.mobileLayout .box {
+    margin-right: 30px;
+}

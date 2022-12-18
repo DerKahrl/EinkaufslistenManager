@@ -1,0 +1,101 @@
+<mat-card style="height: 90%;">
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>{{gericht.bezeichnung}}</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-title-group>
+        <div style="margin-left: auto;">
+            <button mat-icon-button color="primary" (click)="updateDish()">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteDish()">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-header>
+    <mat-card-content>
+
+
+        <div>
+            <div style="float:left;">
+                <table>
+                    <tr>
+                        <td><mat-icon>timer</mat-icon></td>
+                        <td>Zubereitungsdauer:</td>
+                        <td>{{gericht.zubereitungsdauer}}</td>
+                    </tr>
+                    <tr>
+                        <td><mat-icon>grade</mat-icon></td>
+                        <td>Schwierigkeitsgrad:</td>
+                        <td>{{gericht.schwierigkeitsgrad}}</td>
+                    </tr>
+                    <tr>
+                        <td><mat-icon>content_paste_search</mat-icon></td>
+                        <td>Eigenschaften:</td>
+                        <td>
+                            <mat-chip-list aria-label="Eigenschaften">
+                                <mat-chip *ngFor="let eigenschaft of getGerichtEigenschaften(gericht)">
+                                    {{eigenschaft}}
+                                </mat-chip>
+                            </mat-chip-list>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <div style="float:right;">
+                <!--  <button mat-flat-button color="primary">In die Einkaufsliste</button> -->
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <br><br>
+        <mat-grid-list cols="2">
+            <mat-grid-tile>
+                <mat-card class="mat-elevation-z8" style="width: 100%; height: 100%;">
+                    <mat-card-header>
+                        <mat-card-title>Rezept</mat-card-title>
+                        <mat-card-subtitle></mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content  [innerHTML]="formatText(gericht.rezept)"></mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-card style="width: 100%; height: 100%;">
+                    <mat-card-header>
+                        <mat-card-title>Zutaten</mat-card-title>
+                        <mat-card-subtitle></mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+
+                        <table mat-table [dataSource]="gericht.produkte" style="width: 105%;">
+                            <ng-container matColumnDef="Menge">
+                                <th mat-header-cell *matHeaderCellDef> Menge </th>
+                                <td mat-cell *matCellDef="let element"> {{element.menge + ' ' + element.einheit}} </td>
+                            </ng-container>
+
+                            <ng-container matColumnDef="produkt">
+                                <th mat-header-cell *matHeaderCellDef> Bezeichnung </th>
+                                <td mat-cell *matCellDef="let element"> {{element.produkt.bezeichnung}} </td>
+                            </ng-container>
+
+                            <tr mat-header-row *matHeaderRowDef="zutatenDisplayedColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: zutatenDisplayedColumns;"></tr>
+                        </table>
+
+                    </mat-card-content>
+                    <mat-card-actions align="end">
+                        <button
+                            *ngIf="!hideAddToShoppinglistButton"
+                            mat-stroked-button color="primary"
+                            (click)="addZutatenToEinkaufsliste()"
+                        >
+                            <mat-icon>add_shopping_cart</mat-icon> Zutaten in die Einkaufsliste
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+
+            </mat-grid-tile>
+        </mat-grid-list>
+
+    </mat-card-content>
+</mat-card>

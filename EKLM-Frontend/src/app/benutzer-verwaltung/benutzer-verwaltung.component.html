@@ -1,0 +1,50 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="userdata" style="width: 100%;">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef> Nutzername. </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="owner">
+      <th mat-header-cell *matHeaderCellDef> Besitzt </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-chip-list aria-label="Eigenschaften">
+          <mat-chip *ngFor="let list of element.einkaufslisten;">{{list.bezeichnung}}
+          </mat-chip>
+        </mat-chip-list>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="access">
+      <th mat-header-cell *matHeaderCellDef> Zugriff auf </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-chip-list aria-label="Eigenschaften">
+          <mat-chip *ngFor="let list of element.accessibleEinkaufslisten;">{{list.bezeichnung}}
+          </mat-chip>
+        </mat-chip-list>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="buttons">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" style="width: 128px;text-align: right;">
+        <button mat-icon-button color="primary" (click)="editUser(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteUser(element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="userdataColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: userdataColumns;"></tr>
+  </table>
+
+  <button mat-stroked-button color="primary" (click)="newUser()" style="width: 100%;">
+    <mat-icon>add_box</mat-icon> Neuer Benutzer
+  </button>
+</div>

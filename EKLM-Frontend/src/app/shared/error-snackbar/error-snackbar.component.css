@@ -1,0 +1,17 @@
+:host {
+    display: flex;
+    align-items: center;
+}
+.example-pizza-party {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.tableHeader {
+  text-align: left;
+}

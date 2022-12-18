@@ -1,0 +1,31 @@
+<mat-toolbar color="primary">
+    <span style="display: flex; align-items: center;">
+    <button mat-icon-button (click)="snav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>EKLM</span>
+</span>
+    
+    <span class="page-title">{{ pageTitleService.getTitle() | async }}</span>
+
+    <app-toolbar-menu></app-toolbar-menu>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #snav [opened]="!mobileQuery_600px.matches" [mode]="mobileQuery_400px.matches ? 'over' : 'side'" >
+        <mat-nav-list>
+            <a mat-list-item routerLink="/einkaufsliste"><mat-icon>shopping_cart        </mat-icon> Einkaufslisten</a>
+            <a mat-list-item routerLink="/produkte"     ><mat-icon>category             </mat-icon> Produkte</a>
+            <a mat-list-item routerLink="/gerichte"     ><mat-icon>restaurant           </mat-icon> Gerichte</a>
+            <a mat-list-item routerLink="/eigenschaften"><mat-icon>content_paste_search </mat-icon> Eigenschaften</a>
+            <a mat-list-item routerLink="/benutzer"     ><mat-icon>manage_accounts      </mat-icon> Benutzer</a>
+            <a mat-list-item routerLink="/einstellungen"><mat-icon>settings             </mat-icon> Einstellungen</a>
+            
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

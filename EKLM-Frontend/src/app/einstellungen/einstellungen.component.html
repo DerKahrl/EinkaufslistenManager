@@ -1,0 +1,20 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Einstellungen</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <label id="example-radio-group-label">Theme auswählen</label>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+        [(ngModel)]="selectedTheme">
+        <mat-radio-button class="example-radio-button" (change)="themeChanged(theme)"
+          *ngFor="let theme of themeService.themes" [value]="theme">
+          {{theme.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+
+    </mat-card-content>
+    <mat-card-actions align="end">
+    </mat-card-actions>
+  </mat-card>
+</div>

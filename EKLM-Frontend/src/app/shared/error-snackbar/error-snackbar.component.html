@@ -1,0 +1,23 @@
+<div class="example-pizza-party" matSnackBarLabel>
+    <mat-icon class="icon" color="warn">error</mat-icon>
+    <table>
+        <tr>
+            <th class="tableHeader">URL:</th>
+            <td>{{getPath(data.httpError.url)}}</td>
+        </tr>
+
+        <tr>
+            <th class="tableHeader">Error:</th>
+            <td>{{data.httpError.status + ' - ' + data.httpError.statusText}}</td>
+        </tr>
+
+        <tr *ngIf="data.httpError.error && data.httpError.error.message">
+            <th class="tableHeader">Message:</th>
+            <td>{{data.httpError.error.message}}</td>
+        </tr>
+
+    </table>
+</div>
+<div matSnackBarActions>
+    <button mat-button matSnackBarAction (click)="snackBarRef.dismissWithAction()">OK</button>
+</div>

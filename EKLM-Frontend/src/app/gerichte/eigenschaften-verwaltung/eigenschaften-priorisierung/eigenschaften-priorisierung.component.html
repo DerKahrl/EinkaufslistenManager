@@ -1,0 +1,57 @@
+<div cdkDropListGroup>
+    <mat-card *ngFor="let vg of filterVG(vergleichsGruppen); let index = index" style="margin-bottom: 5px;">
+        <mat-card-header>
+            <mat-card-title>Vergleichsgruppe {{index+1}}</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content style="display: flex;">
+
+            <mat-chip-list cdkDropList cdkDropListOrientation="horizontal" class="example-list"
+                style="padding-left: 15px;" (cdkDropListDropped)="drop($event)" [cdkDropListData]="vg">
+                <mat-chip *ngFor="let entry of vg; let index = index" cdkDrag>
+                    <span matBadge="{{entry.prio+1}}" matBadgeOverlap="false"
+                        class="demo-section" matBadgePosition="before" style="display: flex; flex-direction: row; align-items: center;">
+                        <span>{{entry.bezeichnung}}</span>
+                        <mat-icon
+                            *ngIf="entry.anzeigen === false"
+                            matTooltip="Eigenschaft wird nicht angezeigt"
+                            style="margin-left: 4px;"
+                        >visibility_off</mat-icon>
+                    </span>
+                </mat-chip>
+            </mat-chip-list>
+        </mat-card-content>
+        <mat-card-actions>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Nicht zugeordnet</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content style="display: flex;">
+
+            <mat-chip-list cdkDropList [cdkDropListData]="eigenschaftenOhneVG" cdkDropListOrientation="horizontal" class="example-list"
+                style="padding-left: 15px;" (cdkDropListDropped)="drop($event)">
+                <mat-chip *ngFor="let entry of eigenschaftenOhneVG; let index = index" cdkDrag>
+                    {{entry.bezeichnung}}
+                    <mat-icon
+                            *ngIf="entry.anzeigen === false"
+                            matTooltip="Eigenschaft wird nicht angezeigt"
+                            style="margin-left: 4px;"
+                        >visibility_off</mat-icon>
+                </mat-chip>
+            </mat-chip-list>
+        </mat-card-content>
+        <mat-card-actions>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-divider></mat-divider>
+
+    <button mat-stroked-button color="primary" (click)="clickedNewGroup()" style="width: 100%;">
+        <mat-icon>add</mat-icon> Neue Vergleichsgruppe
+    </button>
+
+</div>

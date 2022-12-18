@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{data.ekliProdId === -1 ? 'Neuer Eintrag' : 'Eintrag bearbeiten'}}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="options">
+    <mat-form-field appearance="fill">
+      <mat-label>Produkt</mat-label>
+      <input type="text" matInput name="myControl" [formControl]="myControl" [matAutocomplete]="auto" required>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.bezeichnung}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Menge</mat-label>
+      <input matInput name="Menge" [formControl]="fcMenge" [(ngModel)]="data.menge" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Einheit</mat-label>
+      <input matInput name="Einheit"  [formControl]="fcEinheit" [(ngModel)]="data.einheit" required>
+    </mat-form-field>
+    <br>
+    <button mat-stroked-button (click)="newProduct()"><mat-icon>add</mat-icon>Neues Produkt</button>
+  </form>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" mat-dialog-close>Abbrechen</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="data" [disabled]="options.invalid"
+    cdkFocusInitial>{{ data.ekliProdId === -1 ? 'Hinzufügen' : 'Aktualisieren'}}</button>
+</mat-dialog-actions>

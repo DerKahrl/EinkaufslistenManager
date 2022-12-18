@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>{{ produkt.prodId === -1 ? 'Neues Produkt' : 'Produkt bearbeiten'}}</h1>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Bezeichnung</mat-label>
+    <input matInput [(ngModel)]="produkt.bezeichnung">
+  </mat-form-field>
+  <br>
+  <mat-slide-toggle [(ngModel)]="produkt.istZutat">Zutat</mat-slide-toggle>
+  <br>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Häufige Einheit</mat-label>
+    <input matInput [(ngModel)]="produkt.commoneinheit">
+  </mat-form-field>
+  <br>
+
+  <mat-form-field class="example-chip-list" appearance="fill">
+    <mat-label>Eigenschaften</mat-label>
+    <mat-chip-list #chipList aria-label="property selection">
+      <mat-chip *ngFor="let property of properties" (removed)="remove(property)">
+        {{property}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="Neue Eigenschaft..."
+        [formControl]="propertyCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)"
+        #propertyInput>
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let property of filteredproperties | async" [value]="property">
+        {{property}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-stroked-button color="warn" mat-dialog-close>Abbrechen</button>
+  <button mat-flat-button color="primary" [mat-dialog-close]="produkt" cdkFocusInitial>{{produkt.prodId === -1 ? 'Erstellen' : 'Ändern'}}</button>
+</mat-dialog-actions>

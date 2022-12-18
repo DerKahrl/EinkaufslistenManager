@@ -1,0 +1,84 @@
+<h1 mat-dialog-title>{{ gericht.geriId === -1 ? 'Neues Gericht' : 'Gericht Bearbeiten' }}</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill">
+        <mat-label>Bezeichnung</mat-label>
+        <input matInput [(ngModel)]="gericht.bezeichnung">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Zubereitungsdauer</mat-label>
+        <input matInput placeholder="... min" [(ngModel)]="gericht.zubereitungsdauer">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Schwierigkeitsgrad</mat-label>
+        <input matInput [type]="'number'" [(ngModel)]="gericht.schwierigkeitsgrad">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill" style="width: 100%;">
+        <mat-label>Rezept</mat-label>
+        <textarea matInput placeholder="Zubereitungsanleitung..." [(ngModel)]="gericht.rezept"></textarea>
+    </mat-form-field>
+    <br>
+
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Zutaten</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="gericht.produkte" style="width: 100%;">
+                <ng-container matColumnDef="Menge">
+                    <th mat-header-cell *matHeaderCellDef> Menge </th>
+                    <td mat-cell *matCellDef="let element"> {{element.menge + ' ' + element.einheit}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="produkt">
+                    <th mat-header-cell *matHeaderCellDef> Bezeichnung </th>
+                    <td mat-cell *matCellDef="let element"> {{element.produkt.bezeichnung}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="buttons">
+                    <th mat-header-cell *matHeaderCellDef style="width: 64px;"></th>
+                    <td mat-cell *matCellDef="let element" style="width: 64px;text-align: right;">
+                        <button mat-mini-fab color="warn" (click)="deleteProdukt(element)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="zutatenDisplayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: zutatenDisplayedColumns;"></tr>
+            </table>
+            <br>
+
+
+            <mat-form-field appearance="fill">
+                <mat-label>Produkt</mat-label>
+                <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option.bezeichnung}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Menge</mat-label>
+                <input matInput [(ngModel)]="newProductInfo.menge">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Einheit</mat-label>
+                <input matInput [(ngModel)]="newProductInfo.einheit">
+            </mat-form-field>
+            <button mat-mini-fab color="primary" (click)="addZutat()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-card-content>
+    </mat-card>
+    <br>
+
+</div>
+<mat-dialog-actions align="end">
+    <button mat-stroked-button color="warn" mat-dialog-close>Abbrechen</button>
+    <button mat-flat-button color="primary" cdkFocusInitial
+        [mat-dialog-close]="gericht">{{gericht.geriId === -1 ? 'Erstellen' : 'Ändern'}}</button>
+</mat-dialog-actions>
