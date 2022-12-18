@@ -1,0 +1,52 @@
+version: "3.5"
+services:
+  frontend:
+    container_name: eklm-frontend
+    #image: ng-docker-app:latest
+    build: ./EKLM-Frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  backend:
+    container_name: eklm-backend
+    #image: eklmgr-backend
+    build: ./EKLM-Backend
+#    ports:
+#      - "8080:8080"
+    environment:
+      - "spring.datasource.url=jdbc:mariadb://sqlserver:3306/kanders2"
+      - "spring.datasource.username=root"
+      - "spring.datasource.password=45324324532442345324232"
+    depends_on:
+      - database
+    restart: always
+
+#  backend:
+#    container_name: eklm-system
+#    #image: eklmgr-backend
+#    build: .
+#    ports:
+#      - "80:8080"
+#    environment:
+#      - "DbManager.host=mysql"
+#      - "DbManager.username=root"
+#      - "DbManager.password=45324324532442345324232"
+#    restart: always
+
+
+  database:
+    image: mariadb
+    container_name: sqlserver
+    volumes:
+      - ./volume/mysql:/var/lib/mysql:rw
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+#    ports:
+#      - 3306:3306
+    environment:
+      MYSQL_DATABASE: "kanders"
+      MYSQL_USER: "sample"
+      MYSQL_ROOT_PASSWORD: "45324324532442345324232"
+      MYSQL_PASSWORD: "sample"
+      MYSQL_ROOT_HOST: "%"
