@@ -50,17 +50,17 @@ CREATE TABLE if NOT EXISTS produkte(
 INSERT INTO produkte VALUES
 ( 1, "Shampoo", false, "Flasche" ),
 ( 2, "Champignons", true, "Gramm" ),
-( 3, "Burger Patties", TRUE, "Packung" ),
-( 4, "Äpfel", false, "x" ),
-( 5, "Birnen", false, "x" ),
-( 6, "Banane", false, "x" ),
-( 7, "Zitrone", false, "x" ),
+( 3, "Burger Patties", true, "Packung" ),
+( 4, "Apfel", true, "x" ),
+( 5, "Birnen", true, "x" ),
+( 6, "Banane", true, "x" ),
+( 7, "Zitrone", true, "x" ),
 ( 8, "Tomaten", true, "x" ),
 ( 9, "Zwiebeln", true, "x" ),
 (10, "Knoblauch", true, "x" ),
-(11, "Kartoffeln", false, "x" ),
-(12, "Karotten", false, "x" ),
-(13, "Schnitzel", false, "x" ),
+(11, "Kartoffeln", true, "x" ),
+(12, "Karotten", true, "x" ),
+(13, "Schnitzel", true, "x" ),
 (14, "Pommes frites", true, "Packungen" ),
 (15, "Tomatensauce", true, "Gramm" );
 
@@ -94,8 +94,11 @@ CREATE TABLE if NOT EXISTS gerichte(
 
 INSERT INTO gerichte VALUES
 ( 1, 'Burger mit Pilzen', '10min', 'Alles braten!', 1 ),
-( 2, 'Schnitzel mit Pommes frites und Tomatensauce', '30 Minuten', '1. Schnitzel nach Packungsanweisung zubereiten.\n2. Pommes frites im Ofen backen.\n3. Tomatensauce erhitzen und zu den Pommes frites servieren.', 1 );
-
+( 2, 'Schnitzel mit Pommes frites und Tomatensauce', '30 Minuten', '1. Schnitzel nach Packungsanweisung zubereiten.\n2. Pommes frites im Ofen backen.\n3. Tomatensauce erhitzen und zu den Pommes frites servieren.', 1 ),
+( 3, 'Spaghetti Bolognese', '45 Minuten', '1. Koche die Spaghetti nach Packungsanweisung.\n2. Brate in einer Pfanne Hackfleisch an und würze es mit Salz, Pfeffer und italienischen Gewürzen.\n3. Brate in einer Pfanne Hackfleisch an und würze es mit Salz, Pfeffer und italienischen Gewürzen.\n4. Vermenge die Sauce mit den gekochten Spaghetti und serviere das Gericht heiß.', 1 ),
+( 4, 'Hühnerfrikassee', '45 Minuten', '1. Zerteile das Hähnchenfleisch in kleine Stücke und brate es in einer Pfanne an.\n2. Füge gehackte Zwiebeln, Karotten und Champignons hinzu und brate alles zusammen an.\n3. Gieße Hühnerbrühe über das Fleisch und die Gemüse und lass alles etwa 30 Minuten köcheln.\n4. Verfeinere das Frikassee mit Sahne, Senf und gehacktem Dill und serviere es heiß mit Reis oder Kartoffeln.', 1 ),
+( 5, 'Omelette', '15 Minuten', '1. Verquirle in einer Schüssel 2 Eier und würze sie mit Salz und Pfeffer.\n2. Erhitze in einer Pfanne etwas Öl oder Butter und gieße die Eier hinein.\n3. Während das Omelette stockt, kannst du gehackte Tomaten, Schinken oder Käse darauf legen.\n4. Wenn das Omelette fest genug ist, falte es in der Mitte zusammen und serviere es heiß.', 1),
+( 6, 'Grüne Smoothies', '15 Minuten', '1. Wasche und schneide 1 Handvoll Spinat, 1 Banane und 1 Apfel in Stücke.\n2. Vermenge die Zutaten in einem Mixer mit 1 Tasse Wasser oder Milch und mixe alles zu einem glatten Smoothie.\n3. Füge nach Belieben noch etwas Honig oder Nüsse hinzu und genieße den Smoothie sofort.', 1);
 
 
 CREATE TABLE if NOT EXISTS gerichte_enthaelt_produkte(
