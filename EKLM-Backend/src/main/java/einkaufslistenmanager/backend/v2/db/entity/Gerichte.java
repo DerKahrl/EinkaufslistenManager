@@ -31,7 +31,7 @@ public class Gerichte {
   @Column(name = "rezept", length = 4096)
   private String rezept;
   
-  @Column(name = "schwirigkeitsgrad")
+  @Column(name = "schwierigkeitsgrad")
   private Integer schwierigkeitsgrad;
 
   @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER, mappedBy="gericht")

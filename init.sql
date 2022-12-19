@@ -88,7 +88,7 @@ CREATE TABLE if NOT EXISTS gerichte(
 	bezeichnung VARCHAR(64),
 	zubereitungsdauer VARCHAR(16),
 	rezept VARCHAR(4096),
-	schwirigkeitsgrad INT,
+	schwierigkeitsgrad INT,
 	PRIMARY KEY( GERI_ID )
 );
 
