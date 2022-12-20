@@ -83,6 +83,9 @@ export class AddItemDialogComponent implements OnInit {
               this.checkIfProductAlreadyInShoppingList();
             } else {
               //this.data.Bez = value;
+              this.data.ekliProdId = -1;
+              this.data.menge = '';
+              this.data.einheit = '';
               this.data.produkt = {
                 prodId: -99,
                 bezeichnung: value.trim(),
