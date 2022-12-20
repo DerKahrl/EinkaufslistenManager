@@ -77,14 +77,18 @@ export class CreateNewProductComponent {
 
     // Add our property
     if (value) {
-      this.properties.push(value);
-      this.updateProduktEigenschaften();
+      if ( this.alleEigenschaften.find( (prop) => prop.bezeichnung.toLocaleLowerCase() === value.toLocaleLowerCase() ) != null ) {
+        
+        // But only if it exists:
+        this.properties.push(value); 
+        this.updateProduktEigenschaften();
+
+        // Clear the input value
+        event.chipInput!.clear();
+
+        this.propertyCtrl.setValue(null);
+      }
     }
-
-    // Clear the input value
-    event.chipInput!.clear();
-
-    this.propertyCtrl.setValue(null);
   }
 
   /** Removes a property from the properties array and updates the produkt's eigenschaften. */
