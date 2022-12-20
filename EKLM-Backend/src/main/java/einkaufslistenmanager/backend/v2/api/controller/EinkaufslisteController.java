@@ -179,6 +179,20 @@ public class EinkaufslisteController {
 			logger.error("Einkaufsliste with id {} not found!",id);
 			return ResponseEntity.badRequest().build();
 		}
+		
+		Einkaufsliste EKL = optEKL.get();
+		
+		if ( EKL.getAccessibleEinkaufslisten() != null ) {
+			EKL.getAccessibleEinkaufslisten().forEach( b -> {
+				b.getAccessibleEinkaufslisten().remove(EKL);
+				this.benutzerRepository.save(b);
+			});			
+		}
+		
+		EKL.getBesitzer().getEinkaufslisten().remove(EKL);
+		
+		EKL.getInhalt().clear();
+		
 		einkaufslisteRepository.delete(optEKL.get());
 		logger.info("Einkaufsliste {} [{}] DELETED",
 				optEKL.get().getId(),
