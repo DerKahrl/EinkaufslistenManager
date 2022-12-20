@@ -11,5 +11,6 @@
 <mat-dialog-actions align="end">
   <button mat-stroked-button color="warn" mat-dialog-close>Abbrechen</button>
   <button mat-flat-button color="primary" [mat-dialog-close]="eigenschaft"
+    [disabled]="eigenschaft.bezeichnung === ''"
     cdkFocusInitial>{{ eigenschaft.eigsId === -1 ? 'Erstellen' : 'Ändern' }}</button>
 </mat-dialog-actions>
