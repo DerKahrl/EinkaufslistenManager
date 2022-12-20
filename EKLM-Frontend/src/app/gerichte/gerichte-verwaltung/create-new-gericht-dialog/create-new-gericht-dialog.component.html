@@ -80,5 +80,6 @@
 <mat-dialog-actions align="end">
     <button mat-stroked-button color="warn" mat-dialog-close>Abbrechen</button>
     <button mat-flat-button color="primary" cdkFocusInitial
+        [disabled]="gericht.bezeichnung === '' || gericht.produkte.length === 0"
         [mat-dialog-close]="gericht">{{gericht.geriId === -1 ? 'Erstellen' : 'Ändern'}}</button>
 </mat-dialog-actions>
