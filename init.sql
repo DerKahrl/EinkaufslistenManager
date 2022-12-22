@@ -140,10 +140,11 @@ CREATE TABLE if NOT EXISTS einkaufsliste_enhaelt_produkte(
 );
 
 INSERT INTO einkaufsliste_enhaelt_produkte VALUES
-( 1, 1, 1, '1', 'Flasche' ),
-( 2, 2, 2, '2', 'Packung' ),
-( 3, 2, 3, '1', 'Packung' ),
-( 4, 3, 1, '7', 'Flaschen' );
+( 1, 1,  1, '1', 'Flasche'   ),
+( 2, 2,  2, '200', 'Gramm' ),
+( 3, 2,  3, '1', 'Packung'   ),
+( 4, 3,  1, '7', 'Flaschen'  ),
+( 5, 1, 71, '2', 'Packungen' );
 
 
 CREATE TABLE if NOT EXISTS gerichte(
@@ -156,13 +157,12 @@ CREATE TABLE if NOT EXISTS gerichte(
 );
 
 INSERT INTO gerichte VALUES
-( 1, 'Burger mit Pilzen', '10min', 'Alles braten!', 1 ),
-( 2, 'Schnitzel mit Pommes frites und Tomatensauce', '30 Minuten', '1. Schnitzel nach Packungsanweisung zubereiten.\n2. Pommes frites im Ofen backen.\n3. Tomatensauce erhitzen und zu den Pommes frites servieren.', 1 ),
-( 3, 'Spaghetti Bolognese', '45 Minuten', '1. Koche die Spaghetti nach Packungsanweisung.\n2. Brate in einer Pfanne Hackfleisch an und würze es mit Salz, Pfeffer und italienischen Gewürzen.\n3. Füge Tomatenmark und gehackte Tomaten hinzu und lass das Ganze etwa 20 Minuten köcheln.\n4. Vermenge die Sauce mit den gekochten Spaghetti und serviere das Gericht heiß.', 1 ),
-( 4, 'Hühnerfrikassee', '45 Minuten', '1. Zerteile das Hähnchenfleisch in kleine Stücke und brate es in einer Pfanne an.\n2. Füge gehackte Zwiebeln, Karotten und Champignons hinzu und brate alles zusammen an.\n3. Gieße Hühnerbrühe über das Fleisch und die Gemüse und lass alles etwa 30 Minuten köcheln.\n4. Verfeinere das Frikassee mit Sahne, Senf und gehacktem Dill und serviere es heiß mit Reis oder Kartoffeln.', 1 ),
-( 5, 'Omelette', '15 Minuten', '1. Verquirle in einer Schüssel 2 Eier und würze sie mit Salz und Pfeffer.\n2. Erhitze in einer Pfanne etwas Öl oder Butter und gieße die Eier hinein.\n3. Während das Omelette stockt, kannst du gehackte Tomaten, Schinken oder Käse darauf legen.\n4. Wenn das Omelette fest genug ist, falte es in der Mitte zusammen und serviere es heiß.', 1),
-( 6, 'Grüne Smoothies', '15 Minuten', '1. Wasche und schneide 1 Handvoll Spinat, 1 Banane und 1 Apfel in Stücke.\n2. Vermenge die Zutaten in einem Mixer mit 1 Tasse Wasser oder Milch und mixe alles zu einem glatten Smoothie.\n3. Füge nach Belieben noch etwas Honig oder Nüsse hinzu und genieße den Smoothie sofort.', 1),
-( 7, 'Tomatensauce', '50 Minuten', '1. Für die klassische Tomatensauce die Tomaten kreuzweise einschneiden und mit heißem Wasser übergießen. Nun die Haut abziehen und die Tomaten klein schneiden. Eventuell die Kerne entfernen.\n2. Danach Zwiebel und Knoblauch ebenfalls schälen und klein hacken. In einem Topf das Öl erhitzen und beides glasig andünsten. Den Zucker untermengen und etwas karamellisieren lassen.\n3. Nun mit Essig ablöschen, die Tomaten zugeben und rund 25-30 Minuten einkochen lassen. Nicht vergessen - öfters umrühren.\n4. In der Zwischenzeit das Basilikum waschen, abtropfen lassen und fein hacken. In die fertige gekochte Sauce einrühren und noch mit Salz und Pfeffer abschmecken.', 2);
+( 1, 'Schnitzel mit Pommes frites und Tomatensauce', '30 Minuten', '1. Schnitzel nach Packungsanweisung zubereiten.\n2. Pommes frites im Ofen backen.\n3. Tomatensauce erhitzen und zu den Pommes frites servieren.', 1 ),
+( 2, 'Spaghetti Bolognese',                          '45 Minuten', '1. Koche die Spaghetti nach Packungsanweisung.\n2. Brate in einer Pfanne Hackfleisch an und würze es mit Salz, Pfeffer und italienischen Gewürzen.\n3. Füge Tomatenmark und gehackte Tomaten hinzu und lass das Ganze etwa 20 Minuten köcheln.\n4. Vermenge die Sauce mit den gekochten Spaghetti und serviere das Gericht heiß.', 1 ),
+( 3, 'Hühnerfrikassee',                              '45 Minuten', '1. Zerteile das Hähnchenfleisch in kleine Stücke und brate es in einer Pfanne an.\n2. Füge gehackte Zwiebeln, Karotten und Champignons hinzu und brate alles zusammen an.\n3. Gieße Hühnerbrühe über das Fleisch und die Gemüse und lass alles etwa 30 Minuten köcheln.\n4. Verfeinere das Frikassee mit Sahne, Senf und gehacktem Dill und serviere es heiß mit Reis oder Kartoffeln.', 1 ),
+( 4, 'Omelette',                                     '15 Minuten', '1. Verquirle in einer Schüssel 2 Eier und würze sie mit Salz und Pfeffer.\n2. Erhitze in einer Pfanne etwas Öl oder Butter und gieße die Eier hinein.\n3. Während das Omelette stockt, kannst du gehackte Tomaten, Schinken oder Käse darauf legen.\n4. Wenn das Omelette fest genug ist, falte es in der Mitte zusammen und serviere es heiß.', 1),
+( 5, 'Grüne Smoothies',                              '15 Minuten', '1. Wasche und schneide 1 Handvoll Spinat, 1 Banane und 1 Apfel in Stücke.\n2. Vermenge die Zutaten in einem Mixer mit 1 Tasse Wasser oder Milch und mixe alles zu einem glatten Smoothie.\n3. Füge nach Belieben noch etwas Honig oder Nüsse hinzu und genieße den Smoothie sofort.', 1),
+( 6, 'Tomatensauce',                                 '50 Minuten', '1. Für die klassische Tomatensauce die Tomaten kreuzweise einschneiden und mit heißem Wasser übergießen. Nun die Haut abziehen und die Tomaten klein schneiden. Eventuell die Kerne entfernen.\n2. Danach Zwiebel und Knoblauch ebenfalls schälen und klein hacken. In einem Topf das Öl erhitzen und beides glasig andünsten. Den Zucker untermengen und etwas karamellisieren lassen.\n3. Nun mit Essig ablöschen, die Tomaten zugeben und rund 25-30 Minuten einkochen lassen. Nicht vergessen - öfters umrühren.\n4. In der Zwischenzeit das Basilikum waschen, abtropfen lassen und fein hacken. In die fertige gekochte Sauce einrühren und noch mit Salz und Pfeffer abschmecken.', 2);
 
 CREATE TABLE if NOT EXISTS gerichte_enthaelt_produkte(
 	GERI_PROD_ID INT AUTO_INCREMENT, 
@@ -176,50 +176,48 @@ CREATE TABLE if NOT EXISTS gerichte_enthaelt_produkte(
 );
 
 INSERT INTO gerichte_enthaelt_produkte VALUES
-( 1, 1, 2, '200', 'Gramm' ),
-( 2, 1, 3, '4', 'Patties' ),
-( 3, 2, 13, '1', 'Stück'),
-( 4, 2, 14, '100', 'Gramm'),
-( 5, 2, 15, '200', 'Milliliter'),
-( 6, 3, 8, '150', 'Gramm'),
-( 7, 3, 16, '200', 'Gramm'),
-( 8, 3, 17, '150', 'Gramm'),
-( 9, 3, 18, '100', 'Gramm'),
-( 10, 3, 36, '1', 'Prise'),
-( 11, 3, 37, '1', 'Prise'),
-( 12, 4, 19, '200', 'Gramm'),
-( 13, 4, 9, '50', 'Gramm'),
-( 14, 4, 12, '50', 'Gramm'),
-( 15, 4, 2, '50', 'Gramm'),
-( 16, 4, 20, '300', 'Milliliter'),
-( 17, 4, 21, '1', 'Spritzer'),
-( 18, 4, 22, '1', 'EL'),
-( 19, 4, 23, '1', 'Handvoll'),
-( 20, 4, 11, '100', 'Gramm'),
-( 21, 4, 38, '100', 'Gramm'),
-( 22, 5, 24, '2', 'Stück'),
-( 23, 5, 36, '2', 'Prisen'),
-( 24, 5, 37, '2', 'Prisen'),
-( 25, 5, 25, '2', 'EL'),
-( 26, 5, 26, '25', 'Gramm'),
-( 27, 5, 8, '1', 'Stück'),
-( 28, 5, 27, '1', 'Scheibe'),
-( 29, 5, 28, '1', 'Scheibe'),
-( 30, 6, 29, '1', 'Handvoll'),
-( 31, 6, 6, '1', 'Stück'),
-( 32, 6, 4, '1', 'Stück'),
-( 33, 6, 30, '1', 'Tasse'),
-( 34, 6, 31, '1', 'EL'),
-( 35, 6, 32, '1', 'Handvoll'),
-( 36, 7, 8, '2', 'kg'),
-( 37, 7, 9, '3', 'Stück'),
-( 38, 7, 10, '4', 'Zehen'),
-( 39, 7, 25, '5', 'EL'),
-( 40, 7, 24, '1', 'EL'),
-( 41, 7, 35, '5', 'EL'),
-( 42, 7, 33, '1', 'Bund'),
-( 43, 7, 36, '1', 'Prise'),
-( 44, 7, 37, '1', 'Prise');
+(  3, 1, 13,   '1', 'Stück'),
+(  4, 1, 14, '100', 'Gramm'),
+(  5, 1, 15, '200', 'Milliliter'),
+(  6, 2,  8, '150', 'Gramm'),
+(  7, 2, 16, '200', 'Gramm'),
+(  8, 2, 17, '150', 'Gramm'),
+(  9, 2, 18, '100', 'Gramm'),
+( 10, 2, 36,   '1', 'Prise'),
+( 11, 2, 37,   '1', 'Prise'),
+( 12, 3, 19, '200', 'Gramm'),
+( 13, 3, 9,   '50', 'Gramm'),
+( 14, 3, 12,  '50', 'Gramm'),
+( 15, 3, 2,   '50', 'Gramm'),
+( 16, 3, 20, '300', 'Milliliter'),
+( 17, 3, 21,   '1', 'Spritzer'),
+( 18, 3, 22,   '1', 'EL'),
+( 19, 3, 23,   '1', 'Handvoll'),
+( 20, 3, 11, '100', 'Gramm'),
+( 21, 3, 38, '100', 'Gramm'),
+( 22, 4, 24,   '2', 'Stück'),
+( 23, 4, 36,   '2', 'Prisen'),
+( 24, 4, 37,   '2', 'Prisen'),
+( 25, 4, 25,   '2', 'EL'),
+( 26, 4, 26,  '25', 'Gramm'),
+( 27, 4, 8,    '1', 'Stück'),
+( 28, 4, 27,   '1', 'Scheibe'),
+( 29, 4, 28,   '1', 'Scheibe'),
+( 30, 5, 29,   '1', 'Handvoll'),
+( 31, 5, 6,    '1', 'Stück'),
+( 32, 5, 4,    '1', 'Stück'),
+( 33, 5, 30,   '1', 'Tasse'),
+( 34, 5, 31,   '1', 'EL'),
+( 35, 5, 32,   '1', 'Handvoll'),
+( 36, 6, 8,    '2', 'kg'),
+( 37, 6, 9,    '3', 'Stück'),
+( 38, 6, 10,   '4', 'Zehen'),
+( 39, 6, 25,   '5', 'EL'),
+( 40, 6, 24,   '1', 'EL'),
+( 41, 6, 35,   '5', 'EL'),
+( 42, 6, 33,   '1', 'Bund'),
+( 43, 6, 36,   '1', 'Prise'),
+( 44, 6, 37,   '1', 'Prise');
 
 
 CREATE TABLE if NOT EXISTS eigenschaft(
@@ -232,15 +230,15 @@ CREATE TABLE if NOT EXISTS eigenschaft(
 );
 
 INSERT INTO eigenschaft VALUES
-	(1, 'Tierisch', 0, 0, true),
-	(2, 'Vegetarisch', 0, 1, true),
-	(3, 'Vegan', 0, 2, true),
-	(4, 'Gemüse', -1, -1, true),
-	(5, 'Obst', -1, -1, true),
-	(6, 'Gewürz', -1, -1, false),
-	(7, 'Süß', -1, -1, false),
-	(8, 'Sauer', -1, -1, false),
-	(9, 'Salzig', -1, -1, false);
+	(1, 'Tierisch',    0,  0, true ),
+	(2, 'Vegetarisch', 0,  1, true ),
+	(3, 'Vegan',       0,  2, true ),
+	(4, 'Gemüse',     -1, -1, true ),
+	(5, 'Obst',       -1, -1, true ),
+	(6, 'Gewürz',     -1, -1, false),
+	(7, 'Süß',        -1, -1, false),
+	(8, 'Sauer',      -1, -1, false),
+	(9, 'Salzig',     -1, -1, false);
 
 CREATE TABLE if NOT EXISTS produkte_besitzt_eigenschaft(
 	PROD_ID INT,
